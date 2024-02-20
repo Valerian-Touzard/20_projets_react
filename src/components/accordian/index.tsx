@@ -27,7 +27,10 @@ const Acordian = () => {
   return (
     <div className="wrapper">
       <button onClick={() => setEnableMultiSelection(!enableMultiSelection)}>
-        Enable multi selection
+        {
+          enableMultiSelection ? "Disable multi selection" : "Enable multi selection"
+        }
+        
       </button>
       <div className="accordian">
         {data && data.length > 0 ? (
