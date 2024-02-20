@@ -15,14 +15,11 @@ const Acordian = () => {
     let cpyMultiple: string[] = [...multiple];
     const findIndexOfCurrentId = cpyMultiple.indexOf(id);
 
-    console.log(findIndexOfCurrentId);
     if (findIndexOfCurrentId === -1) cpyMultiple.push(id);
     else cpyMultiple.splice(findIndexOfCurrentId, 1);
 
     setMultiple(cpyMultiple);
   };
-
-  console.log(selected, multiple);
 
   return (
     <div className="wrapper">
