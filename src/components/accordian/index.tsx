@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import data from "./data";
+import "./style.css"
 
 const Acordian = () => {
   const [selected, setSelected] = useState<string>();
