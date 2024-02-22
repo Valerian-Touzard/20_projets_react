@@ -90,7 +90,7 @@ const ImageSlider = ({ url, page, limit }: Props) => {
                 className={
                   currentSlide === index
                     ? "current-indicator"
-                    : "current-image inactive-indicator"
+                    : "current-indicator inactive-indicator"
                 }
                 onClick={() => setCurrentSlide(index)}
               ></button>
