@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
-import './style.css'
+import "./style.css";
 
 type Props = {
   url: string;
@@ -20,7 +20,7 @@ type Image = {
 const ImageSlider = ({ url, page, limit }: Props) => {
   const [images, setImages] = useState<Image[]>([]);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [errorMsg, setErrorMsg] = useState<string>('');
+  const [errorMsg, setErrorMsg] = useState<string>("");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -49,27 +49,54 @@ const ImageSlider = ({ url, page, limit }: Props) => {
     return <div>Loading data ! Please wait</div>;
   }
 
-  if (errorMsg !== '') {
+  if (errorMsg !== "") {
     return <div>Error occured ! {errorMsg}</div>;
   }
 
+  const handlePrevious = () => {
+    setCurrentSlide(currentSlide === 0 ? images.length - 1 : currentSlide - 1);
+  };
+  const handleNext = () => {
+    setCurrentSlide(currentSlide === images.length ? 0 : currentSlide + 1);
+  };
+
   return (
     <div className="container">
-      <BsArrowLeftCircleFill className="arrow arrow-left" />
+      <BsArrowLeftCircleFill
+        onClick={handlePrevious}
+        className="arrow arrow-left"
+      />
       {images && images.length
-        ? images.map((image) => (
+        ? images.map((image, index) => (
             <img
               key={image.id}
               alt={image.download_url}
               src={image.download_url}
-              className="current-image"
+              className={
+                currentSlide === index
+                  ? "current-image"
+                  : "current-image hide-current-image"
+              }
             />
           ))
         : null}
-      <BsArrowRightCircleFill className="arrow arrow-right" />
+      <BsArrowRightCircleFill
+        onClick={handleNext}
+        className="arrow arrow-right"
+      />
       <span className="circle-indicators">
         {images && images.length
-          ? images.map((_, index) => <button key={index} className="current-indicator"></button>)
+          ? images.map((_, index) => (
+              <button
+                key={index}
+                className={
+                  currentSlide === index
+                    ? "current-indicator"
+                    : "current-image inactive-indicator"
+                }
+                onClick={() => setCurrentSlide(index)}
+              ></button>
+            ))
           : null}
       </span>
     </div>
