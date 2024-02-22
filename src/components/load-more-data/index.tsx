@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./style.css"
+import "./style.css";
 
 type FetchData = {
   products: Product[];
@@ -26,16 +26,21 @@ const LoadMoreData = () => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState<Product[]>([]);
   const [count, setCount] = useState(0);
+  const [disableButton, setDisableButton] = useState(false);
 
   useEffect(() => {
     fetchProduct();
-  }, []);
+  }, [count]);
+
+  useEffect(() => {
+    if (products && products.length === 100) setDisableButton(true);
+  }, [products]);
 
   const fetchProduct = async () => {
     try {
       setLoading(true);
       const response = await fetch(
-        `https://dummyjson.com/products?limit=10&skip=${
+        `https://dummyjson.com/products?limit=20&skip=${
           count === 0 ? 0 : count * 20
         }`
       );
@@ -43,7 +48,7 @@ const LoadMoreData = () => {
       const result = await response.json();
 
       if (result && result.products && result.products.length) {
-        setProducts(result.products);
+        setProducts((prevData) => [...prevData, ...result.products]);
         setLoading(false);
       }
 
@@ -62,14 +67,21 @@ const LoadMoreData = () => {
     <div className="load-more-container">
       <div className="product-container">
         {products && products.length
-          ? products.map((product) => <div key={product.id} className="product">
-            <img src={product.thumbnail} alt={product.title} />
-            <p>{product.title}</p>
-          </div>)
+          ? products.map((product) => (
+              <div key={product.id} className="product">
+                <img src={product.thumbnail} alt={product.title} />
+                <p>{product.title}</p>
+              </div>
+            ))
           : null}
       </div>
       <div className="button-container">
-        <button>Load more products</button>
+        <button disabled={disableButton} onClick={() => setCount(count + 1)}>
+          Load more products
+        </button>
+        {
+            disableButton ? <p>You have reached to 100 products</p> : null
+        }
       </div>
     </div>
   );
