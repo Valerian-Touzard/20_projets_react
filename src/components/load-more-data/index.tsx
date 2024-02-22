@@ -52,7 +52,6 @@ const LoadMoreData = () => {
         setLoading(false);
       }
 
-      console.log(result);
     } catch (e) {
       console.error(e);
       setLoading(false);
