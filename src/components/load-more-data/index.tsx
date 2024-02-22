@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./style.css"
 
 type FetchData = {
   products: Product[];
@@ -58,7 +59,7 @@ const LoadMoreData = () => {
   }
 
   return (
-    <div className="container">
+    <div className="load-more-container">
       <div className="product-container">
         {products && products.length
           ? products.map((product) => <div key={product.id} className="product">
