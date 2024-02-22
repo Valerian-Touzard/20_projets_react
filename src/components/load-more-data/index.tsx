@@ -62,13 +62,16 @@ const LoadMoreData = () => {
   if (loading) {
     return <div>Loading data ! Please wait</div>;
   }
-
+  const handleClickCount = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setCount(count + 1)
+  }
   return (
     <div className="load-more-container">
       <div className="product-container">
         {products && products.length
-          ? products.map((product) => (
-              <div key={product.id} className="product">
+          ? products.map((product, index) => (
+              <div key={index} className="product">
                 <img src={product.thumbnail} alt={product.title} />
                 <p>{product.title}</p>
               </div>
@@ -76,7 +79,7 @@ const LoadMoreData = () => {
           : null}
       </div>
       <div className="button-container">
-        <button disabled={disableButton} onClick={() => setCount(count + 1)}>
+        <button disabled={disableButton} onClick={(e) => handleClickCount(e)}>
           Load more products
         </button>
         {
