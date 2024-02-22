@@ -27,8 +27,6 @@ const ImageSlider = ({ url, page, limit }: Props) => {
     if (url !== "") fetchImages(url);
   }, [url]);
 
-  console.log(images);
-
   const fetchImages = async (url: string) => {
     try {
       setLoading(true);
@@ -57,7 +55,7 @@ const ImageSlider = ({ url, page, limit }: Props) => {
     setCurrentSlide(currentSlide === 0 ? images.length - 1 : currentSlide - 1);
   };
   const handleNext = () => {
-    setCurrentSlide(currentSlide === images.length ? 0 : currentSlide + 1);
+    setCurrentSlide(currentSlide === images.length - 1 ? 0 : currentSlide + 1);
   };
 
   return (
