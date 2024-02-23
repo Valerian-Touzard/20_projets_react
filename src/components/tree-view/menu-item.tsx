@@ -22,8 +22,6 @@ const MenuItem = ({ item }: Props) => {
     });
   };
 
-  console.log(displayCurrentChildren);
-
   return (
     <li>
       <div className="menu-item">
