@@ -1,6 +1,7 @@
 import React from "react";
 import MenuList from "./menu-list";
 import { Menu } from "./data";
+import './style.css'
 
 type Props = {
     menu: Menu[]
