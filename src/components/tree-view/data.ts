@@ -1,4 +1,10 @@
-export const menus = [
+export interface Menu {
+  label: string,
+  to: string,
+  children?: Menu[]
+}
+
+export const menus: Menu[] = [
   {
     label: "Home",
     to: "/",
