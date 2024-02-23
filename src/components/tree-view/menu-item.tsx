@@ -1,14 +1,21 @@
-import React from 'react'
-import { Menu } from './data'
+import React from "react";
+import { Menu } from "./data";
+import MenuList from "./menu-list";
 
 type Props = {
-    item: Menu
-}
+  item: Menu;
+};
 
-const MenuItem = ({item}: Props) => {
+const MenuItem = ({ item }: Props) => {
   return (
-    <div>MenuItem</div>
-  )
-}
+    <li>
+      <p>{item.label}</p>
 
-export default MenuItem
+      {item && item.children && item.children.length > 0 ? (
+        <MenuList list={item.children} />
+      ) : null}
+    </li>
+  );
+};
+
+export default MenuItem;

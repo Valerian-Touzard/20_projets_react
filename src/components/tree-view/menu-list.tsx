@@ -3,17 +3,17 @@ import MenuItem from "./menu-item";
 import { Menu } from "./data";
 
 type Props = {
-    list: Menu[]
-}
+  list: Menu[];
+};
 
 const MenuList = ({ list }: Props) => {
-  return <div className="menu-list-container">
-    {
-        list && list.length ?
-        list.map(listItem => <MenuItem item={listItem} />)
-        : null
-    }
-  </div>;
+  return (
+    <ul className="menu-list-container">
+      {list && list.length
+        ? list.map((listItem) => <MenuItem item={listItem} />)
+        : null}
+    </ul>
+  );
 };
 
 export default MenuList;
