@@ -1,15 +1,13 @@
 import React from "react";
 import useLocalStrorage from "./useLocalStrorage";
+import "./theme.css";
 
 const LightDarkMode = () => {
   const [theme, setTheme] = useLocalStrorage("theme", "dark");
 
-  const handleToggleTheme= () => {
-    setTheme(theme === 'light' ? 'dark' : 'light')
-  }
-
-  console.log(theme);
-  
+  const handleToggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
   return (
     <div className="light-dark-mode" data-theme={theme}>
