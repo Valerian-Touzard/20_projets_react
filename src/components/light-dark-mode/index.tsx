@@ -1,12 +1,24 @@
 import React from "react";
+import useLocalStrorage from "./useLocalStrorage";
 
 const LightDarkMode = () => {
-  return <div className="light-dark-mode">
-    <div className="container">
+  const [theme, setTheme] = useLocalStrorage("theme", "dark");
+
+  const handleToggleTheme= () => {
+    setTheme(theme === 'light' ? 'dark' : 'light')
+  }
+
+  console.log(theme);
+  
+
+  return (
+    <div className="light-dark-mode" data-theme={theme}>
+      <div className="container">
         <p>Hello World !</p>
-        <button>Change Theme</button>
+        <button onClick={handleToggleTheme}>Change Theme</button>
+      </div>
     </div>
-  </div>;
+  );
 };
 
 export default LightDarkMode;
