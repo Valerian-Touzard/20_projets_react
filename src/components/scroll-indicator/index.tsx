@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./style.css"
+import "./style.css";
 
 // Typage pour les informations que l'on reçois
 type Props = {
@@ -83,6 +83,14 @@ const ScrollIndicator = ({ url }: Props) => {
 
     setScrollPercentage((howMuchScrolled / height) * 100);
   };
+
+  if (errorMessage) {
+    return <div>Error ! {errorMessage}</div>;
+  }
+
+  if (isLoading) {
+    return <div>Loading data! Please wait</div>;
+  }
 
   return (
     <div>
