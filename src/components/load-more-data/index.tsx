@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 
-type FetchData = {
-  products: Product[];
-  total: number;
-  skip: number;
-  limit: number;
-};
-
 type Product = {
   id: number;
   title: string;
