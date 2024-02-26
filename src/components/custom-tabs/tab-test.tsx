@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import Tabs from "./tabs";
+import "./style.css"
 
 const RandomComponent = () => {
   return <div>Random Component</div>;
