@@ -9,6 +9,7 @@ import TreeView from './components/tree-view';
 import menus from './components/tree-view/data';
 import QrCodeGenerator from './components/qr-code-generator';
 import LightDarkMode from './components/light-dark-mode';
+import ScrollIndicator from './components/scroll-indicator';
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
 
       {/* Light Dark Mode */}
       <LightDarkMode />
+
+      {/* Scroll Indicator */}
+      <ScrollIndicator />
     </div>
   );
 }
