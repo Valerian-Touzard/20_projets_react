@@ -29,6 +29,9 @@ const LoadMoreData = () => {
     if (products && products.length === 100) setDisableButton(true);
   }, [products]);
 
+  /**
+   * Permet de récupérer nos produit depuis l'API
+   */
   const fetchProduct = async () => {
     try {
       setLoading(true);
@@ -51,13 +54,19 @@ const LoadMoreData = () => {
     }
   };
 
-  if (loading) {
-    return <div>Loading data ! Please wait</div>;
-  }
+  /**
+   * Permet d'augmenter de 1 le nombre de clique sur le bouton
+   * @param e React.MouseEvent
+   */
   const handleClickCount = (e: React.MouseEvent) => {
     e.preventDefault();
     setCount(count + 1)
   }
+
+  if (loading) {
+    return <div>Loading data ! Please wait</div>;
+  }
+  
   return (
     <div className="load-more-container">
       <div className="product-container">
