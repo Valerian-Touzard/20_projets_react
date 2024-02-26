@@ -27,6 +27,10 @@ const ImageSlider = ({ url, page, limit }: Props) => {
     if (url !== "") fetchImages(url);
   }, [url]);
 
+  /**
+   * Permet de récupérer les images depuis l'API
+   * @param url String: l'url de l'api sur laquelle on récupère les data
+   */
   const fetchImages = async (url: string) => {
     try {
       setLoading(true);
@@ -43,6 +47,23 @@ const ImageSlider = ({ url, page, limit }: Props) => {
     }
   };
 
+  /**
+   * Permet de passer à l'image précédente
+   * Si il n'y a plus d'image, alors on montre la dernière images
+   */
+  const handlePrevious = () => {
+    setCurrentSlide(currentSlide === 0 ? images.length - 1 : currentSlide - 1);
+  };
+
+  /**
+   * Permet de passer à l'image suivante
+   * Si il n'y a plus d'image, alors on montre la première images
+   */
+  const handleNext = () => {
+    setCurrentSlide(currentSlide === images.length - 1 ? 0 : currentSlide + 1);
+  };
+
+
   if (loading) {
     return <div>Loading data ! Please wait</div>;
   }
@@ -50,13 +71,6 @@ const ImageSlider = ({ url, page, limit }: Props) => {
   if (errorMsg !== "") {
     return <div>Error occured ! {errorMsg}</div>;
   }
-
-  const handlePrevious = () => {
-    setCurrentSlide(currentSlide === 0 ? images.length - 1 : currentSlide - 1);
-  };
-  const handleNext = () => {
-    setCurrentSlide(currentSlide === images.length - 1 ? 0 : currentSlide + 1);
-  };
 
   return (
     <div className="container">
