@@ -9,9 +9,19 @@ const RandomColor = () => {
     else handleCreateRandomHexColor();
   }, [typeOfColor]);
 
+  /**
+   * Permet de retourner un nombre aléatoire
+   * @param length Number: La limite de 0 à ce nombre
+   * @returns 
+   */
   const randomColorUtility = (length: number) => {
     return Math.floor(Math.random() * length);
   };
+
+  /**
+   * Permet de générer une couleur hexadécimal aléatoire
+   * @param e React.MouseEvent: l'évènement du click
+   */
   const handleCreateRandomHexColor = (e?: React.MouseEvent) => {
     const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
     let hexColor = "#";
@@ -21,6 +31,11 @@ const RandomColor = () => {
     }
     setColor(hexColor);
   };
+
+  /**
+   * Permet de générer une couleur RGB aléatoire
+   * @param e React.MouseEvent: l'évènement du click
+   */
   const handleCreateRandomRgbColor = (e?: React.MouseEvent) => {
     const r = randomColorUtility(256);
     const g = randomColorUtility(256);
