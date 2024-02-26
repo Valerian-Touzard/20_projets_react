@@ -34,11 +34,20 @@ const ScrollIndicator = ({ url }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
   //   Stocke le message d'erreur si il y en as
   const [errorMessage, setErrorMessage] = useState("");
+  const [scrollPercentage, setScrollPercentage] = useState(0);
 
   useEffect(() => {
     // Apelle de notre fonction de récupération de données
     fetchData(url);
   }, [url]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScrollPercentage);
+
+    return () => {
+      window.removeEventListener("scroll", () => {});
+    };
+  }, [scrollPercentage]);
 
   /**
    * Récupère les données depui l'API et les stockent dans le state "data"
@@ -61,16 +70,33 @@ const ScrollIndicator = ({ url }: Props) => {
     }
   };
 
-  return <div>
-    <h1>Custom Scroll Indicator</h1>
-    <div className="data-container">
-        {
-            data &&data.products.length > 0 ?
-            data.products.map(product => <p key={product.id}>{product.title}</p>)
-            : null
-        }
+  /**
+   * Permet de calculer le "pourcentage" de scroll de l'utilisateur
+   * et le stocker dans notre state "scrollPercentage"
+   */
+  const handleScrollPercentage = () => {
+    const howMuchScrolled =
+      document.body.scrollTop || document.documentElement.scrollTop;
+
+    const height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+
+      setScrollPercentage((howMuchScrolled/height)*100)
+    };
+
+  return (
+    <div>
+      <h1>Custom Scroll Indicator</h1>
+      <div className="data-container">
+        {data && data.products.length > 0
+          ? data.products.map((product) => (
+              <p key={product.id}>{product.title}</p>
+            ))
+          : null}
+      </div>
     </div>
-  </div>;
+  );
 };
 
 export default ScrollIndicator;
