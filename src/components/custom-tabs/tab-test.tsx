@@ -26,6 +26,10 @@ const TabTest = () => {
     },
   ];
 
+  /**
+   * Permet d'afficher en console l'index de l'éléments afficher
+   * @param currentTabIndex 
+   */
   const handleChange = (currentTabIndex: number) => {
     console.log(currentTabIndex);
   };
