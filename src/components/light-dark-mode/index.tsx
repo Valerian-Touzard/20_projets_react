@@ -5,6 +5,9 @@ import "./theme.css";
 const LightDarkMode = () => {
   const [theme, setTheme] = useLocalStrorage("theme", "dark");
 
+  /**
+   * Permet de changer le theme dark/light mode
+   */
   const handleToggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
