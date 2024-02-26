@@ -10,12 +10,28 @@ const StarRating = ({ noOfStars }: StarRatingProps) => {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
 
+  /**
+   * Permet d'enregistrer, dans un state, l'étoile séléctionnée
+   * @param currentIndex Number: L'index de l'étoile séléctionnée
+   * @param e React.MouseEvent: l'évènement du click
+   */
   const handleClick = (currentIndex: number, e?: React.MouseEvent) => {
     setRating(currentIndex);
   };
+
+  /**
+   * Permet d'enregistrer, dans un state, l'étoile survoler par la souris
+   * @param currentIndex Number: L'index de l'étoile survoler
+   * @param e React.MouseEvent: l'évènement du click
+   */
   const handleMouseEnter = (currentIndex: number, e?: React.MouseEvent) => {
     setHover(currentIndex);
   };
+
+  /**
+   * Permet d'enregistrer l'étoile dont la souris est partit
+   * @param e React.MouseEvent: l'évènement du click
+   */
   const handleMouseLeave = (e?: React.MouseEvent) => {
     setHover(rating);
   };
