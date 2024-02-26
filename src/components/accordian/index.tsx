@@ -7,10 +7,20 @@ const Acordian = () => {
   const [enableMultiSelection, setEnableMultiSelection] = useState(false);
   const [multiple, setMultiple] = useState<string[]>([]);
 
+  /**
+   * Permet de modifier le menu qui doit être dérouler
+   * @param id String: L'id du menu que l'on souhaite dérouler
+   * @param e React.MouseEvent: l'évènement du click
+   */
   const handleSingleSelection = (id: string, e: React.MouseEvent) => {
     setSelected(id === selected ? "" : id);
   };
 
+  /**
+   * Permet de modifier le comportement du menu pour que tout les menu ce déroule
+   * @param id String: 
+   * @param e React.MouseEvent: l'évènement du click
+   */
   const handleMultiSelection = (id: string, e: React.MouseEvent) => {
     let cpyMultiple: string[] = [...multiple];
     const findIndexOfCurrentId = cpyMultiple.indexOf(id);
