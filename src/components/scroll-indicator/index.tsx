@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import "./style.css"
 
 // Typage pour les informations que l'on reçois
 type Props = {
   url: string;
 };
-
 // Typage pour l'ensemble des données que l'on reçois depuis l'API dummyJson
 type DataProps = {
   limit: number;
@@ -12,7 +12,6 @@ type DataProps = {
   total: number;
   products: ProductProps[];
 };
-
 // Typage des données qui nous intérèsse
 type ProductProps = {
   id: number;
@@ -82,12 +81,21 @@ const ScrollIndicator = ({ url }: Props) => {
       document.documentElement.scrollHeight -
       document.documentElement.clientHeight;
 
-      setScrollPercentage((howMuchScrolled/height)*100)
-    };
+    setScrollPercentage((howMuchScrolled / height) * 100);
+  };
 
   return (
     <div>
-      <h1>Custom Scroll Indicator</h1>
+      <div className="top-container">
+        <h1>Custom Scroll Indicator</h1>
+        <div className="scroll-progress-tracking-container">
+          <div
+            className="current-progress-bar"
+            style={{ width: `${scrollPercentage}%` }}
+          ></div>
+        </div>
+      </div>
+
       <div className="data-container">
         {data && data.products.length > 0
           ? data.products.map((product) => (
