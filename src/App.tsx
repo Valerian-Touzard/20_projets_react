@@ -10,6 +10,7 @@ import menus from './components/tree-view/data';
 import QrCodeGenerator from './components/qr-code-generator';
 import LightDarkMode from './components/light-dark-mode';
 import ScrollIndicator from './components/scroll-indicator';
+import TabTest from './components/custom-tabs/tab-test';
 
 function App() {
   return (
@@ -40,6 +41,9 @@ function App() {
 
       {/* Scroll Indicator */}
       <ScrollIndicator url='https://dummyjson.com/products?limit=100' />
+
+      {/* Custom tabs */}
+      <TabTest />
     </div>
   );
 }
