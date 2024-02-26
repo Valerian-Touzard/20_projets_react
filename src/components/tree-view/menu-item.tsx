@@ -15,6 +15,10 @@ const MenuItem = ({ item }: Props) => {
   const [displayCurrentChildren, setDisplayCurrentChildren] =
     useState<DisplayCurrentChildren>({});
 
+    /**
+     * Permet d'afficher les menus
+     * @param label String: le nom du menu
+     */
   const handleToggleChildren = (label: string) => {
     setDisplayCurrentChildren({
       ...displayCurrentChildren,
