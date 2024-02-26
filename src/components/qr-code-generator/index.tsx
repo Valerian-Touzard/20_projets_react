@@ -5,10 +5,20 @@ const QrCodeGenerator = () => {
   const [qrCode, setQrCode] = useState("");
   const [input, setInput] = useState("");
 
+
+  /**
+   * Permet d'enregistrer les modifications de l'utilisateur
+   * @param e React.ChangeEvent<HTMLInputElement>: évènement détecter dès un changement sur l'input
+   */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
   };
 
+
+  /**
+   * Permet de générer le qr code en fonction de la saisie de l'utilisateur dans l'input
+   * @param e React.MouseEvent<HTMLButtonElement>: évènement détecter dès le click de l'utilisateur
+   */
   const handleGenerate = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setQrCode(input as string);
