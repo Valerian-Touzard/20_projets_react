@@ -5,14 +5,15 @@ type Props = {
   header?: ReactNode;
   body?: ReactNode;
   footer?: ReactNode;
+  onClose: Function
 };
 
-const Modal = ({ id, header, body, footer }: Props) => {
+const Modal = ({ id, header, body, footer, onClose }: Props) => {
   return (
     <div id={id || "Modal"} className="modal">
       <div className="modal-content">
         <div className="header">
-          <span className="close-modal-icon">&times;</span>
+          <span onClick={onClose()} className="close-modal-icon">&times;</span>
           <h2>{header ? header : "Header"}</h2>
         </div>
         <div className="body">

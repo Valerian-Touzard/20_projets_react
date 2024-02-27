@@ -12,10 +12,17 @@ const ModalTest = () => {
     setShowModalPopup(!showModalPopup);
   };
 
+  /**
+   * Permet de fermer la modale
+   */
+  const onClose = () =>{
+    setShowModalPopup(false);
+  }
+
   return (
     <div>
       <button onClick={handleToggleModalPopup}>Open Modal Popup</button>
-      {showModalPopup && <Modal body={<div>Customize Body</div>} />}
+      {showModalPopup && <Modal onClose={() => onClose} body={<div>Customize Body</div>} />}
     </div>
   );
 };
