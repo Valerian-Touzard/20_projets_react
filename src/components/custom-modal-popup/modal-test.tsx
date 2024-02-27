@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Modal from "./modal";
+import "./style.css"
 
 const ModalTest = () => {
   const [showModalPopup, setShowModalPopup] = useState(false);
