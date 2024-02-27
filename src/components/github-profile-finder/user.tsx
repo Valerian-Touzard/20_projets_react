@@ -13,7 +13,7 @@ const User = ({ user }: Props) => {
       <div>
         <img src={user.avatar_url} className="avatar" alt="User" />
       </div>
-      <div>
+      <div className="name-container">
         <a href={`https://github.com/${user.login}`}>
           {user.name || user.login}
         </a>
@@ -24,7 +24,7 @@ const User = ({ user }: Props) => {
           })} ${createdDate.getFullYear()}`}
         </p>
       </div>
-      <div>
+      <div className="profile-info">
         <div>
           <p>Public Repos</p>
           <p>{user.public_repos}</p>

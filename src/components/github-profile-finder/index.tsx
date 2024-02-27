@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import User from "./user";
-
+import "./style.css"
 
 export type UserData = {
     avatar_url: string,
