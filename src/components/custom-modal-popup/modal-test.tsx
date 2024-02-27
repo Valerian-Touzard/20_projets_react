@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useState } from "react";
+import Modal from "./modal";
 
 const ModalTest = () => {
-  return (
-    <div>ModalTest</div>
-  )
-}
+  const [showModalPopup, setShowModalPopup] = useState(false);
 
-export default ModalTest
+  /**
+   * Permet de changer le state "showModalPopup" pour cacher ou afficher le composant Modal
+   */
+  const handleToggleModalPopup = () => {
+    setShowModalPopup(!showModalPopup);
+  };
+
+  return (
+    <div>
+      <button onClick={handleToggleModalPopup}>Open Modal Popup</button>
+      {showModalPopup && <Modal />}
+    </div>
+  );
+};
+
+export default ModalTest;
