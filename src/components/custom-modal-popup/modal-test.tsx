@@ -22,7 +22,7 @@ const ModalTest = () => {
   return (
     <div>
       <button onClick={handleToggleModalPopup}>Open Modal Popup</button>
-      {showModalPopup && <Modal onClose={() => onClose} body={<div>Customize Body</div>} />}
+      {showModalPopup && <Modal onClose={() => onClose} id="Custom-ID" header={<h1>Customized Header</h1>} body={<div>Customize Body</div>} footer={<h1>Customized Footer</h1>}/>}
     </div>
   );
 };
