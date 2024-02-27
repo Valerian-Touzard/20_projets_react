@@ -11,6 +11,7 @@ import QrCodeGenerator from './components/qr-code-generator';
 import LightDarkMode from './components/light-dark-mode';
 import ScrollIndicator from './components/scroll-indicator';
 import TabTest from './components/custom-tabs/tab-test';
+import ModalTest from './components/custom-modal-popup/modal-test';
 
 function App() {
   return (
@@ -44,6 +45,9 @@ function App() {
 
       {/* Custom tabs */}
       <TabTest />
+
+      {/* Custom Modal */}
+      <ModalTest />
     </div>
   );
 }
