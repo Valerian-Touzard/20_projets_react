@@ -14,7 +14,7 @@ const ModalTest = () => {
   return (
     <div>
       <button onClick={handleToggleModalPopup}>Open Modal Popup</button>
-      {showModalPopup && <Modal />}
+      {showModalPopup && <Modal body={<div>Customize Body</div>} />}
     </div>
   );
 };

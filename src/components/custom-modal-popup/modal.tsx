@@ -1,10 +1,10 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 type Props = {
   id?: string;
-  header?: string;
-  body?: string;
-  footer?: string;
+  header?: ReactNode;
+  body?: ReactNode;
+  footer?: ReactNode;
 };
 
 const Modal = ({ id, header, body, footer }: Props) => {
