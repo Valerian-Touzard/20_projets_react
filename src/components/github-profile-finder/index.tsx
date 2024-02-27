@@ -31,10 +31,16 @@ const GithubProfileFinder = () => {
     if(data) {
         setUserData(data);
         setLoading(false);
+        setUsername('')
     }
   };
 
-  const handleSubmit = () => {};
+  /**
+   * Fonction appeller au clique sur le bouton 'Search'
+   */
+  const handleSubmit = () => {
+    fetchGithubUserData()
+  };
 
 
   if(loading) {
