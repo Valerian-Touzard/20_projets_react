@@ -29,7 +29,7 @@ const GithubProfileFinder = () => {
 
     const data = await res.json();
     if(data) {
-        setUserData(data);
+        await setUserData(data);
         setLoading(false);
         setUsername('')
     }
