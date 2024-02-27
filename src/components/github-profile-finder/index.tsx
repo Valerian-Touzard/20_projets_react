@@ -1,9 +1,20 @@
 import React, { useEffect, useState } from "react";
+import User from "./user";
 
+
+export type UserData = {
+    avatar_url: string,
+    followers: number,
+    following: number,
+    public_repos: number,
+    name?: string,
+    login: string,
+    created_at: string;
+}
 
 const GithubProfileFinder = () => {
   const [username, setUsername] = useState("vtouzard");
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState<UserData>();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -29,7 +40,7 @@ const GithubProfileFinder = () => {
   if(loading) {
         return <h1>Loading Data! Please wait</h1>
   }
-  
+
   return (
     <div className="github-profile-container">
       <div className="input-wrapper">
@@ -42,6 +53,9 @@ const GithubProfileFinder = () => {
         />
         <button onClick={handleSubmit}>Search</button>
       </div>
+      {
+        userData !== undefined && <User user={userData} />
+      }
     </div>
   );
 };
