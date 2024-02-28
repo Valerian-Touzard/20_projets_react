@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Suggestion from "./suggestion";
 
 type User = {
   firstName: string;
@@ -68,6 +69,9 @@ const SearchAutoComplete = () => {
         type="text"
         placeholder="Search Users here..."
       />
+      {
+        showDropDown && <Suggestion data={filteredUsers} />
+      }
     </div>
   );
 };
