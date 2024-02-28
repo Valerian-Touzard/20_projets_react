@@ -46,14 +46,23 @@ const SearchAutoComplete = () => {
     const query = e.target.value.toLowerCase();
     setSearchParam(query);
     if (query.length > 1) {
-      const filteredData = users && users.length ? users.filter((user) => user.toLowerCase().indexOf(query) > -1)
-      :["erreur"];
+      const filteredData =
+        users && users.length
+          ? users.filter((user) => user.toLowerCase().indexOf(query) > -1)
+          : ["erreur"];
       setFilteredUsers(filteredData);
       setShowDropDown(true);
       console.log(filteredUsers, filteredData);
     } else {
       setShowDropDown(false);
     }
+  };
+
+  const handleClick = (text: any) => {
+    console.log("hey");
+    setShowDropDown(false);
+    setSearchParam(text);
+    setFilteredUsers([]);
   };
 
   if (error) {
@@ -69,9 +78,9 @@ const SearchAutoComplete = () => {
         type="text"
         placeholder="Search Users here..."
       />
-      {
-        showDropDown && <Suggestion data={filteredUsers} />
-      }
+      {showDropDown && (
+        <Suggestion handleClick={handleClick} data={filteredUsers} />
+      )}
     </div>
   );
 };
