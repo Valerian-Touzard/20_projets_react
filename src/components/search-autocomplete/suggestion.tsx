@@ -14,7 +14,7 @@ const Suggestion = ({ data, handleClick }: Props) => {
     <ul>
       {data && data.length
         ? data.map((item, index) => (
-            <li onClick={() => handleItemClick(item)} key={index}>
+            <li style={{ cursor: "pointer" }} onClick={() => handleItemClick(item)} key={index}>
               {item}
             </li>
           ))
