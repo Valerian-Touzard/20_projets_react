@@ -7,9 +7,6 @@ type Props = {
 };
 
 const Square = ({ value, onClick }: Props) => {
-  const squareClick = () => {
-    onClick();
-  };
 
   return (
     <button onClick={onClick} className="square">
@@ -75,6 +72,14 @@ const TicTacToe = () => {
     return null;
   };
 
+  /**
+   * Méthode qui permet de redémarer une partie
+   */
+  const handleRestart = () =>{
+    setIsXTurn(true);
+    setSquares(Array(9).fill(""))
+  }
+
   return (
     <div className="tic-tac-toe-container">
       <div className="row">
@@ -93,6 +98,7 @@ const TicTacToe = () => {
         <Square value={squares[8]} onClick={() => handleClick(8)} />
       </div>
       <h1>{status}</h1>
+      <button onClick={() => handleRestart}>Restart</button>
     </div>
   );
 };
