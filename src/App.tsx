@@ -14,48 +14,52 @@ import TabTest from './components/custom-tabs/tab-test';
 import ModalTest from './components/custom-modal-popup/modal-test';
 import GithubProfileFinder from './components/github-profile-finder';
 import SearchAutoComplete from './components/search-autocomplete';
+import TicTacToe from './components/tic-tac-toe';
 
 function App() {
   return (
     <div className="App">
       {/* Accordian component */}
-      <Acordian />
+      {/* <Acordian /> */}
 
       {/* Random Color Component */}
-      <RandomColor />
+      {/* <RandomColor /> */}
 
       {/* Star Rating Component */}
-      <StarRating noOfStars={10} />
+      {/* <StarRating noOfStars={10} /> */}
 
       {/* Image Slider */}
-      <ImageSlider url={'https://picsum.photos/v2/list'} page={'1'} limit={'10'}/>
+      {/* <ImageSlider url={'https://picsum.photos/v2/list'} page={'1'} limit={'10'}/> */}
 
       {/* Load more data */}
-      <LoadMoreData />
+      {/* <LoadMoreData /> */}
 
       {/* Tree view component */}
-      <TreeView menu={menus} />
+      {/* <TreeView menu={menus} /> */}
 
       {/* QR code generator component */}
-      <QrCodeGenerator />
+      {/* <QrCodeGenerator /> */}
 
       {/* Light Dark Mode */}
-      <LightDarkMode />
+      {/* <LightDarkMode /> */}
 
       {/* Scroll Indicator */}
-      <ScrollIndicator url='https://dummyjson.com/products?limit=100' />
+      {/* <ScrollIndicator url='https://dummyjson.com/products?limit=100' /> */}
 
       {/* Custom tabs */}
-      <TabTest />
+      {/* <TabTest /> */}
 
       {/* Custom Modal */}
-      <ModalTest />
+      {/* <ModalTest /> */}
 
       {/* Github Profile Finder */}
-      <GithubProfileFinder />
+      {/* <GithubProfileFinder /> */}
 
       {/* Auto Complete */}
-      <SearchAutoComplete />
+      {/* <SearchAutoComplete /> */}
+
+      {/* TIC TAC TOE */}
+      <TicTacToe />
     </div>
   );
 }
