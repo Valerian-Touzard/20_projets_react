@@ -1,7 +1,4 @@
 .tic-tac-toe-container {
-  clear: both;
-  content: "";
-  display: table;
   display: flex;
   flex-direction: column;
   align-items: center;
