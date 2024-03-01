@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 
 type Props = {
@@ -21,6 +21,18 @@ const Square = ({ value, onClick }: Props) => {
 const TicTacToe = () => {
   const [squares, setSquares] = useState(Array(9).fill(""));
   const [isXTurn, setIsXTurn] = useState(true);
+  const [status, setStatus] = useState('');
+
+  useEffect(() => {
+    if(!getWinner(squares) && squares.every(item => item !== "")){
+      setStatus(`This is a draw ! Please restart the game`)
+    }else if(getWinner(squares)){
+      setStatus(`Winner is ${getWinner(squares)}`)
+    }else{
+      setStatus(`Next player is ${isXTurn ? "X": "O"}`)
+    }
+  }, [squares, isXTurn])
+  
 
   /**
    * Méthode qui permet d'afficher un X ou un O lors du clique de l'utilisateur dans le carrée
@@ -30,13 +42,38 @@ const TicTacToe = () => {
    */
   const handleClick = (index: number) => {
     let cpySquares = [...squares];
-    if (cpySquares[index]) return;
+    if (getWinner(cpySquares) || cpySquares[index]) return;
     cpySquares[index] = isXTurn ? "X" : "O";
     setIsXTurn(!isXTurn);
     setSquares(cpySquares);
   };
 
-  
+  /**
+   * Vérifie Si il y a un gagnant. Si il y en a un, retourne la patterne gagnant. Null sinon
+   * @param squares Array<string>: Le plateau de jeux
+   * @returns Le paterne gagnant, null sinon
+   */
+  const getWinner = (squares: Array<string>) => {
+    const winningPatterns = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+
+    for (let i = 0; i < winningPatterns.length; i++) {
+      const [x, y, z] = winningPatterns[i];
+      if (
+        squares[x] && squares[x] === squares[y] && squares[x] === squares[z]) {
+        return squares[x];
+      }
+    }
+    return null;
+  };
 
   return (
     <div className="tic-tac-toe-container">
