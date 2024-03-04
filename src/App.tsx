@@ -64,9 +64,11 @@ function App() {
       {/* <TicTacToe /> */}
 
       {/* Feature Flag Implementation */}
-      <FeatureFlagGlobalState>
+      {/* <FeatureFlagGlobalState>
         <FeatureFlags />
-      </FeatureFlagGlobalState>
+      </FeatureFlagGlobalState> */}
+
+      {/* Custom Hook */}
     </div>
   );
 }
