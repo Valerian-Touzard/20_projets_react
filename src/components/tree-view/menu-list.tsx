@@ -3,7 +3,7 @@ import MenuItem from "./menu-item";
 import { Menu } from "./data";
 
 type Props = {
-  list?: Menu[];
+  list: Menu[];
 };
 
 const MenuList = ({ list }: Props) => {

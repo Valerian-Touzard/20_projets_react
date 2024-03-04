@@ -4,7 +4,7 @@ import { Menu } from "./data";
 import './style.css'
 
 type Props = {
-    menu?: Menu[]
+    menu: Menu[]
 }
 
 const TreeView = ({ menu } : Props) => {

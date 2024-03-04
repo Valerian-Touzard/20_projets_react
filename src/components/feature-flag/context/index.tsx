@@ -15,17 +15,21 @@ export const FeatureFlagGlobalState = ({
 
   const fetchFeatureFlags = async () => {
     try {
+      setLoading(true);
       // Appelle original du service
-      const response: FeatureFlagsResponse = await featureFlagsDataServiceCall();
+      const response: FeatureFlagsResponse =
+        await featureFlagsDataServiceCall();
       setEnabledFlags(response);
+      setLoading(false);
     } catch (error) {
       console.error(error);
+      setLoading(false);
       throw new Error(error as string);
     }
   };
 
   return (
-    <FeatureFlagContext.Provider value={{enabledFlags}}>
+    <FeatureFlagContext.Provider value={{ loading, enabledFlags }}>
       {children}
     </FeatureFlagContext.Provider>
   );
