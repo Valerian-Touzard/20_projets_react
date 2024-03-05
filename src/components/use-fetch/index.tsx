@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { ApiResponse, Product } from "./test";
 
 const UseFetch = (url: string, options = {}) => {
   // 3 states
-  const [data, setData] = useState();
+  const [data, setData] = useState<ApiResponse>();
   const [pending, setPending] = useState<boolean>();
   const [error, setError] = useState<string>();
 
