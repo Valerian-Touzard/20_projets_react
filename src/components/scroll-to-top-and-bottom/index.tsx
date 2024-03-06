@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import UseFetch from "../use-fetch";
 import { ApiResponse } from "../use-fetch/test";
 
@@ -14,6 +14,8 @@ const ScrollToTopAndBottom = () => {
     {}
   );
 
+    const bottomRef = useRef<HTMLDivElement>(null)
+
   /**
    * Permet de "remonter" la page en haut du site de manière douce
    */
@@ -28,7 +30,11 @@ const ScrollToTopAndBottom = () => {
   /**
    * Permet de "descendre" la page en bas du site de manière douce
    */
-  const handleScrollToBottom = () => {};
+  const handleScrollToBottom = () => {
+    bottomRef.current?.scrollIntoView({
+        behavior: 'smooth'
+    })
+  };
 
   if (error) {
     return <h1>Error occured ! Please try again</h1>;
@@ -40,7 +46,7 @@ const ScrollToTopAndBottom = () => {
     <div>
       <h1>Scroll To Top And Bottom feature</h1>
       <h3>This is the top section</h3>
-      <button>Scroll To Bottom</button>
+      <button onClick={handleScrollToBottom}>Scroll To Bottom</button>
       <ul style={{ listStyle: "none" }}>
         {data && data.products.length
           ? data.products.map((product) => (
@@ -49,6 +55,7 @@ const ScrollToTopAndBottom = () => {
           : null}
       </ul>
       <button onClick={handleScrollToTop}>Scroll To Top</button>
+      <div ref={bottomRef}></div>
       <h3>This is the bottom of the page</h3>
     </div>
   );
