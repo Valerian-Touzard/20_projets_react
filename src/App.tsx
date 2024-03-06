@@ -20,6 +20,7 @@ import FeatureFlags from './components/feature-flag';
 import UseFetchHookTest from './components/use-fetch/test';
 import UseOnClickOutsideTest from './components/use-outside-click/test';
 import UseWindowResizeTest from './components/use-window-resize/test';
+import ScrollToTopAndBottom from './components/scroll-to-top-and-bottom';
 
 function App() {
   return (
@@ -78,7 +79,10 @@ function App() {
       {/* <UseOnClickOutsideTest /> */}
 
       {/* Use window resize Hook test */}
-      <UseWindowResizeTest />
+      {/* <UseWindowResizeTest /> */}
+
+      {/* Scroll to Top and Bottom */}
+      <ScrollToTopAndBottom />
     </div>
   );
 }
