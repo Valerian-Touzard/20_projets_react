@@ -10,7 +10,7 @@ type FetchResult = {
 
 const ScrollToTopAndBottom = () => {
   const { data, error, pending }: FetchResult = UseFetch(
-    "https://dummyjson.com/products",
+    "https://dummyjson.com/products?limit=100",
     {}
   );
 
@@ -27,7 +27,7 @@ const ScrollToTopAndBottom = () => {
       <button>Scroll To Bottom</button>
       <ul style={{listStyle: 'none'}}>
         {data && data.products.length
-          ? data.products.map((product) => <li>{product.title}</li>)
+          ? data.products.map((product) => <li key={product.id}>{product.title}</li>)
           : null}
       </ul>
       <button>Scroll To Top</button>
