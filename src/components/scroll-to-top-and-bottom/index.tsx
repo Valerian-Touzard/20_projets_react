@@ -25,7 +25,7 @@ const ScrollToTopAndBottom = () => {
       <h1>Scroll To Top And Bottom feature</h1>
       <h3>This is the top section</h3>
       <button>Scroll To Bottom</button>
-      <ul>
+      <ul style={{listStyle: 'none'}}>
         {data && data.products.length
           ? data.products.map((product) => <li>{product.title}</li>)
           : null}
