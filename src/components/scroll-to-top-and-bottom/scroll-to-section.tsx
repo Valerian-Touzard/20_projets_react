@@ -48,8 +48,8 @@ const ScrollToSection = () => {
       <h1>Scroll to a particular section</h1>
       <button>Click to scroll</button>
       {
-        data.map((item, index) => <div>
-            <h3 key={index} style={item.style}>{item.label}</h3>
+        data.map((item, index) => <div key={index}>
+            <h3 style={item.style}>{item.label}</h3>
         </div>)
       }
     </div>
