@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useState } from "react";
 
 const UseWindowResize = () => {
   const [windowSize, setWindowSize] = useState({
-    with: 0,
+    width: 0,
     height: 0,
   });
 
@@ -23,7 +23,7 @@ const UseWindowResize = () => {
    */
   const handleResize = () => {
     setWindowSize({
-      with: window.innerWidth,
+      width: window.innerWidth,
       height: window.innerHeight,
     });
   };
